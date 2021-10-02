@@ -1,0 +1,19 @@
+version: "20.10.8"
+services:
+  app:
+    container_name: sdc-overview
+    build: .
+    ports:
+      - '2000:3000'
+    depends_on:
+      - postgres
+    environment:
+      DATABASE_URL: postgres://andychen@7798/sdc
+  db:
+    image: postgres
+    ports:
+      - "1234:5432"
+    environment:
+      POSTGRES_USER: andychen
+      POSTGRES_PASSWORD: 7798
+      POSTGRES_DB: sdc
