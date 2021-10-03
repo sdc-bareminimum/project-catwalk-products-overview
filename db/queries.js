@@ -1,9 +1,9 @@
 const { Sequelize } = require('sequelize');
-const sequelize = new Sequelize('postgres://andychen:7798@host.docker.internal:5432/sdc')
+const sequelize = new Sequelize('postgres://andychen:7798@hostip:5432/sdc')
 const Pool = require('pg').Pool
 const pool = new Pool({
   user: 'andychen',
-  host: 'host.docker.internal',
+  host: 'http://hostip',
   database: 'sdc',
   password: '7798',
   port: 1234,
