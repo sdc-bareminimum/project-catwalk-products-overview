@@ -1,35 +1,35 @@
 services:
   web1:
-    depends on :
-     - "db"
     container_name: sdc-overview
     build: .
     ports:
       - '2000:3000'
+    depends_on :
+      - "db"
 
   web2:
-    depends on :
-     - "db"
     container_name: sdc-overview
     build: .
     ports:
-    - '2001:3000'
+      - '2001:3000'
+    depends_on :
+      - "db"
 
   web3:
-    depends on :
-    - "db"
     container_name: sdc-overview
     build: .
     ports:
       - '2002:3000'
+    depends_on :
+      - "db"
 
   web4:
-    depends on :
-     - "db"
     container_name: sdc-overview
     build: .
     ports:
       - '2003:3000'
+    depends_on :
+      - "db"
 
   db:
     image: postgres
@@ -40,12 +40,7 @@ services:
       POSTGRES_PASSWORD: 7798
       POSTGRES_DB: sdc
 
-   nginx:
-    depends on :
-      - web1
-      - web2
-      - web3
-      - web4
+  nginx:
     image: nginx:latest
     container_name: production_nginx
     volumes:
@@ -53,3 +48,8 @@ services:
     ports:
       - 80:80
       - 443:443
+    depends_on :
+      - web1
+      - web2
+      - web3
+      - web4
