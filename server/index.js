@@ -6,11 +6,11 @@ const port = 3000
 
 
 const path = require('path');
-const LOADER_PATH = path.resolve(__dirname, '..','/loaderio-50c41153ee780f8ff1f32ab6b1ffd4b5.txt');
+const LOADER_PATH = path.resolve(__dirname,'/loaderio-c09ceb5f960d4664752827e37b8b9368.txt');
 
 
 app.use(express.json())
-app.use('/loaderio-50c41153ee780f8ff1f32ab6b1ffd4b5.txt', express.static(LOADER_PATH))
+app.use('/loaderio-c09ceb5f960d4664752827e37b8b9368.txt', express.static(LOADER_PATH))
 
 
 app.get('/api/products', db.getAllProducts)
