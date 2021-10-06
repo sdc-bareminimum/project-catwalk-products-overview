@@ -1,10 +1,12 @@
 import http from 'k6/http';
-import { sleep, check }  from 'k6'
+import { check, sleep } from 'k6';
 
-export default function() {
-  http.get('http://test.k6.io');
-  check(res, {
-    'is status 200': (res) => res.status === 200
-  })
-  sleep(1);
+const max = 1000011;
+const min = 900000;
+const rnd = Math.floor(Math.random() * (max - min + 1)) + min;
+
+export default function () {
+  let res = http.get(`http://localhost:3000/api/products/1/related`);
+  check(res, { 'status was 200': (r) => r.status == 200 });
+  // sleep(1);
 }

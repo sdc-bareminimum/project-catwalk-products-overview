@@ -6,17 +6,17 @@ import http from 'k6/http';
 export let options = {
     maxRedirects: 0,
     stages: [
-      {target: 100, duration: "60s" },
+      {target: 100, duration: "10s" },
     ]
 };
 
 export default function() {
 
-	group("page_1 - http://localhost:3000/products/42", function() {
+	group("page_1 - http://localhost:3000/products/42/styles", function() {
 		let req, res;
 		req = [{
 			"method": "get",
-			"url": "http://localhost:3000/products/42",
+			"url": "http://localhost:3000/products/42/styles",
 			"params": {
 				"headers": {
 					"Host": "localhost:3000",

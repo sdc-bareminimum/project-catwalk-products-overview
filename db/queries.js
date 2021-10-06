@@ -1,12 +1,12 @@
 const { Sequelize } = require('sequelize');
-const sequelize = new Sequelize('postgres://andychen:7798@hostip:5432/sdc')
+const sequelize = new Sequelize('postgres://andychen:7798@db:5432/sdc')
 const Pool = require('pg').Pool
 const pool = new Pool({
   user: 'andychen',
-  host: 'http://hostip',
+  host: 'db',
   database: 'sdc',
   password: '7798',
-  port: 1234,
+  port: 5432,
 })
 
 // Option 1: Passing a connection URI
@@ -71,7 +71,7 @@ const getAllProducts = (request, response) => {
   pool.query(`SELECT a.id, a.name, a.slogan, a.description, a.category, a.default_price,
     json_agg(json_build_object('features', f.feature, 'values', f.value)) features
     FROM ref_products AS a JOIN features AS f ON f.product_id = a.id
-    GROUP BY a.id`, (error, results) => {
+    GROUP BY a.id LIMIT 5`, (error, results) => {
     if (error) {
       throw error
     }
