@@ -1,24 +1,24 @@
 services:
   web1:
-    container_name: sdc-overview
+    container_name: sdc-overview1
     build: .
     depends_on :
       - "db"
 
   web2:
-    container_name: sdc-overview
+    container_name: sdc-overview2
     build: .
     depends_on :
       - "db"
 
   web3:
-    container_name: sdc-overview
+    container_name: sdc-overview3
     build: .
     depends_on :
       - "db"
 
   web4:
-    container_name: sdc-overview
+    container_name: sdc-overview4
     build: .
     depends_on :
       - "db"
