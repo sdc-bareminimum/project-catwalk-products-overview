@@ -31,6 +31,8 @@ services:
       POSTGRES_USER: andychen
       POSTGRES_PASSWORD: 7798
       POSTGRES_DB: sdc
+    volumes:
+      - ./dockerbase/data.sql:/docker-entrypoint-initdb.d/data.sql
 
   nginx:
     image: nginx:latest
