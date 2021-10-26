@@ -69,8 +69,6 @@ $ npm run test:db:connection
 
 ## Application Diagram
 
-![EC2 Setup Diagram](resources/images/ec2_setup_diagram.png)
-
 ## API Endpoints:
 
 This Express app is serving Product data for a retail web portal. The frontend expects reviews and Q&A data, but that is a seperate service from this (`/products`). Listed below are the endpoints routes built, serving SQL data loaded from `.csv` files.
@@ -296,4 +294,4 @@ Response
 
 ---
 
-GitHub [@spencerlepine](https://github.com/andy-ch3n)
+GitHub [@andy-ch3n](https://github.com/andy-ch3n)
